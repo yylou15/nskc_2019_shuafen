@@ -18,7 +18,7 @@ if opt == '1':
     college = input('请输入学院全称\n')
     clazz = input('请输入专业班级\n')
 
-    res = session.post(url='http://yiban.csu.edu.cn/java/nskc_2019/account/registerForInfo',
+    session.post(url='http://yiban.csu.edu.cn/java/nskc_2019/account/registerForInfo',
                  data=json.dumps({
                      "studentId": stuId,
                      "username": name,
@@ -29,13 +29,11 @@ if opt == '1':
                      "major": ""
                  })
     )
-    print(res.text)
-    res = session.post(url='http://yiban.csu.edu.cn/java/nskc_2019/account/registerForAccount',
+    session.post(url='http://yiban.csu.edu.cn/java/nskc_2019/account/registerForAccount',
                  data=json.dumps({
                      "studentId": stuId, "password": pwd
                  }))
 
-    print(res.text)
 
 else:
     stuId = input('请输入学号\n')
